@@ -1,0 +1,36 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.RegistrarModel
+@{
+    ViewData["Title"] = "Registrar Nuevo Usuario";
+}
+
+<div class="container mt-5">
+    <h2>Registrar Usuario</h2>
+
+    <form method="post" asp-page-handler="Register">
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" asp-for="Nombre" class="form-control" id="Nombre" />
+        </div>
+        <div class="mb-3">
+            <label for="Apellido" class="form-label">Apellido</label>
+            <input type="text" asp-for="Apellido" class="form-control" id="Apellido" />
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" asp-for="Email" class="form-control" id="Email" />
+        </div>
+        <div class="mb-3">
+            <label for="Contraseña" class="form-label">Contraseña</label>
+            <input type="password" asp-for="Contraseña" class="form-control" id="Contraseña" />
+        </div>
+        <button type="submit" class="btn btn-success">Registrarse</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div class="alert alert-danger mt-3">
+            @Model.Mensaje
+        </div>
+    }
+</div>

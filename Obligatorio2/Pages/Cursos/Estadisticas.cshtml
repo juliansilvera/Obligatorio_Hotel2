@@ -1,0 +1,20 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.EstadisticasModel
+@{
+    ViewData["Title"] = "Estadísticas";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Estadísticas de Reservas</h2>
+
+    <div class="mt-4">
+        <h4 class="text-center">Habitación con más reservas</h4>
+        <p class="text-center">
+            <strong>@Model.HabitacionConMasReservas</strong> - Total de reservas: <strong>@Model.TotalReservas</strong>
+        </p>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a href="/Cursos/MisReservas" class="btn btn-primary">Volver a Mis Reservas</a>
+    </div>
+</div>

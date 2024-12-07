@@ -1,0 +1,25 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.RealizarReservaModel
+    
+<h2>Realizar Reserva</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div style="color:red;">@Model.ErrorMessage</div>
+}
+
+<form method="post">
+    <div>
+        <label for="HabitacionId">Número de Habitación:</label>
+        <input type="number" asp-for="HabitacionId" required />
+    </div>
+    <div>
+        <label for="FechaInicio">Fecha de Inicio:</label>
+        <input type="date" asp-for="FechaInicio" required />
+    </div>
+    <div>
+        <label for="FechaFin">Fecha de Fin:</label>
+        <input type="date" asp-for="FechaFin" required />
+    </div>
+    <button type="submit">Realizar Reserva</button>
+</form>

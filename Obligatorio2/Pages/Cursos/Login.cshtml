@@ -1,0 +1,33 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.LoginModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<h2>Iniciar Sesión</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="Email" />
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Contraseña</label>
+        <input type="password" asp-for="Password" class="form-control" id="Password" />
+    </div>
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+</form>

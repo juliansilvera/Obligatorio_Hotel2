@@ -1,0 +1,61 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.MisReservasModel
+
+<h2 class="text-center mt-4">Mis Reservas</h2>
+
+@if (Model.Reservas.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID Reserva</th>
+                    <th>Habitación</th>
+                    <th>Tipo</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reserva in Model.Reservas)
+                {
+                    <tr>
+                        <td>@reserva.NumeroReserva</td>
+                        <td>@reserva.NumeroHabitacion</td>
+                        <td>@reserva.Habitacion?.Tipo</td>
+                        <td>@reserva.FechaInicio.ToShortDateString()</td>
+                        <td>@reserva.FechaFin.ToShortDateString()</td>
+                        <td>
+                            <div class="d-flex flex-column align-items-center">
+                                <form method="post" asp-page-handler="Editar" class="mb-2">
+                                    <input type="hidden" name="id" value="@reserva.NumeroReserva" />
+                                    <div class="d-flex flex-column">
+                                        <input type="date" name="nuevaFechaInicio"
+                                               value="@reserva.FechaInicio.ToString("yyyy-MM-dd")"
+                                               min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               class="form-control mb-1" required />
+                                        <input type="date" name="nuevaFechaFin"
+                                               value="@reserva.FechaFin.ToString("yyyy-MM-dd")"
+                                               min="@reserva.FechaInicio.ToString("yyyy-MM-dd")"
+                                               class="form-control mb-2" required />
+                                    </div>
+                                    <button type="submit" class="btn btn-warning w-100">Actualizar</button>
+                                </form>
+
+                                <form method="post" asp-page-handler="Cancelar">
+                                    <input type="hidden" name="id" value="@reserva.NumeroReserva" />
+                                    <button type="submit" class="btn btn-danger w-100">Cancelar</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p class="text-center mt-4">No tienes reservas.</p>
+}

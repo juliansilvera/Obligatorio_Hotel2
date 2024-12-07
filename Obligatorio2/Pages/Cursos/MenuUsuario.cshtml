@@ -1,0 +1,13 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.MenuUsuario
+
+<h2>Bienvenido, @Model.Usuario?.Nombre @Model.Usuario?.Apellido</h2>
+
+<div>
+    <ul>
+        <li><a asp-page="/Habitaciones">Ver Habitaciones Disponibles</a></li>
+        <li><a asp-page="/MisReservas">Mis Reservas</a></li>
+        <li><a asp-page="/RealizarReserva">Realizar Reserva</a></li>
+        <li><a asp-page="/CerrarSesion">Cerrar Sesión</a></li>
+    </ul>
+</div>

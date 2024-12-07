@@ -1,0 +1,15 @@
+﻿@page
+@model Obligatorio2.Pages.Cursos.IndexModel
+@{
+    ViewData["HOTEL"] = "Reservas - Página Principal";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Bienvenido al Sistema de Reservas</h1>
+    <p class="text-center">Por favor, inicia sesión o regístrate para continuar.</p>
+
+    <div class="d-flex justify-content-center mt-4">
+        <a asp-page="/Cursos/Login" class="btn btn-primary me-2">Iniciar Sesión</a>
+        <a asp-page="/Cursos/Registrar" class="btn btn-success">Registrarse</a>
+    </div>
+</div>
